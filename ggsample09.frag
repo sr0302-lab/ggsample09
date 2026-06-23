@@ -27,12 +27,14 @@ void main(void)
 {
   // 修正コード(開始)
   
+  // 法線マップを読み込む
   vec4 normalColor = texture(normal, tc);
   
+  // 法線マップのRGB値は [0, 1] なので、法線ベクトルとして使うため [-1, 1] に変換する
   vec3 nn = normalize(normalColor.xyz * 2.0 - 1.0);
   
   // 修正コード(終了)
-  
+
   vec3 nl = normalize(l);                           // 接空間における光線ベクトル
   vec3 nh = normalize(h);                           // 接空間における中間ベクトル
 
